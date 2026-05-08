@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Coldrun.Api/Coldrun.Api.csproj" />
+    <Project Path="src/Coldrun.BuildingBlocks/Coldrun.BuildingBlocks.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/TruckManagement/">
+    <Project Path="src/Coldrun.Modules.TruckManagement/TruckManagement.Api/Coldrun.Modules.TruckManagement.Api.csproj" />
+    <Project Path="src/Coldrun.Modules.TruckManagement/TruckManagement.Application/Coldrun.Modules.TruckManagement.Application.csproj" />
+    <Project Path="src/Coldrun.Modules.TruckManagement/TruckManagement.Domain/Coldrun.Modules.TruckManagement.Domain.csproj" />
+    <Project Path="src/Coldrun.Modules.TruckManagement/TruckManagement.Infrastructure/Coldrun.Modules.TruckManagement.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
