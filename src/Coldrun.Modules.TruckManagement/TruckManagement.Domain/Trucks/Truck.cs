@@ -1,12 +1,8 @@
-﻿using Coldrun.BuildingBlocks.Domain;
-using Coldrun.Modules.TruckManagement.Domain.Trucks.Events;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Coldrun.BuildingBlocks.Domain;
 
 namespace Coldrun.Modules.TruckManagement.Domain.Trucks;
 
-public sealed class Truck : AggregateRoot
+public sealed class Truck : Entity
 {
     public TruckCode Code { get; private set; }
     public TruckName Name { get; private set; }
@@ -28,10 +24,7 @@ public sealed class Truck : AggregateRoot
             throw new InvalidTruckStatusTransitionException(Status, newStatus);
         }
 
-        var oldStatus = Status;
         Status = newStatus;
-
-        AddDomainEvent(new TruckStatusChangedDomainEvent(Code, oldStatus, newStatus));
     }
 
     public void UpdateDetails(TruckName name, TruckDescription? description)

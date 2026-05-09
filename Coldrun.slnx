@@ -11,4 +11,10 @@
     <Project Path="src/Coldrun.Modules.TruckManagement/TruckManagement.Infrastructure/Coldrun.Modules.TruckManagement.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/tests/" />
+  <Folder Name="/tests/Modules/" />
+  <Folder Name="/tests/Modules/TruckManagement/">
+    <Project Path="tests/Coldrun.Modules.TruckManagement/TruckManagement.Api.IntegrationTests/Coldrun.Modules.TruckManagement.Api.IntegrationTests.csproj" />
+    <Project Path="tests/Coldrun.Modules.TruckManagement/TruckManagement.Application.UnitTests/Coldrun.Modules.TruckManagement.Application.UnitTests.csproj" />
+    <Project Path="tests/Coldrun.Modules.TruckManagement/TruckManagement.Domain.UnitTests/Coldrun.Modules.TruckManagement.Domain.UnitTests.csproj" />
+  </Folder>
 </Solution>

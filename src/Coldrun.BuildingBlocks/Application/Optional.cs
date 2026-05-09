@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Coldrun.BuildingBlocks.Application;
+﻿namespace Coldrun.BuildingBlocks.Application;
 
 public readonly record struct Optional<T>(bool HasValue, T? Value)
 {
