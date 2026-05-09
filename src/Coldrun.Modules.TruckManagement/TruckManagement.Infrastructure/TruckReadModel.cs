@@ -1,19 +1,25 @@
-using Coldrun.Modules.TruckManagement.Application.Ports;
-using Coldrun.Modules.TruckManagement.Application.Queries;
+using Coldrun.Modules.TruckManagement.Application.Trucks.Ports;
+using Coldrun.Modules.TruckManagement.Application.Trucks.Queries;
+using Coldrun.Modules.TruckManagement.Application.Trucks.Queries.SearchTrucks;
 
 namespace Coldrun.Modules.TruckManagement.Infrastructure;
 
 public sealed class TruckReadModel : ITruckReadModel
 {
-    public Task<TruckDetailsDto?> GetByCodeAsync(string code, CancellationToken cancellationToken)
+    public Task<TruckDetailsProjection?> GetByCodeAsync(string code, CancellationToken cancellationToken = default)
     {
-        return Task.FromResult<TruckDetailsDto?>(null);
+        return Task.FromResult<TruckDetailsProjection?>(null);
     }
 
-    public Task<PagedResult<TruckListItemDto>> SearchAsync(
-        SearchTrucksQuery query,
-        CancellationToken cancellationToken)
+    public Task<TruckStatusProjection?> GetStatusByCodeAsync(string code, CancellationToken cancellationToken = default)
     {
-        return Task.FromResult(new PagedResult<TruckListItemDto>([], 1, 10, 0));
+        return Task.FromResult<TruckStatusProjection?>(null);
+    }
+
+    public Task<PagedResult<TruckListItemProjection>> SearchAsync(
+        SearchTrucksCriteria criteria,
+        CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(new PagedResult<TruckListItemProjection>([], 1, 10, 0));
     }
 }

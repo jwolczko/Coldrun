@@ -1,6 +1,5 @@
 using Coldrun.Modules.TruckManagement.Application;
 using Coldrun.Modules.TruckManagement.Infrastructure;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,14 +14,10 @@ public static class TruckManagementModule
         services.AddTruckManagementApplication();
         services.AddTruckManagementInfrastructure(configuration);
 
+        services.AddScoped<Hypermedia.TruckLinksFactory>();
+        services.AddScoped<TruckRepresentationFactory>();
+        services.AddScoped<TruckStatusRepresentationFactory>();
+
         return services;
-    }
-
-    public static IEndpointRouteBuilder MapTruckManagementModule(
-        this IEndpointRouteBuilder app)
-    {
-        app.MapTrucksEndpoints();
-
-        return app;
     }
 }

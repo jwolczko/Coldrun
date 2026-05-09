@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Coldrun.Modules.TruckManagement.Domain.Trucks;
 
-namespace Coldrun.Modules.TruckManagement.Domain.Trucks;
-
-public class TruckName
+public record TruckName
 {
+    public static TruckName Create(string truckName) => new TruckName { Value = truckName };
+
+    public required string Value { get; set; }
 }

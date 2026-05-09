@@ -1,4 +1,4 @@
-using Coldrun.Modules.TruckManagement.Application.Ports;
+using Coldrun.Modules.TruckManagement.Application.Trucks.Ports;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +14,8 @@ public static class DependencyInjection
         services.AddDbContext<TruckManagementDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("TruckManagement")));
 
+        services.AddScoped<ITruckManagementUnitOfWork>(sp =>
+            sp.GetRequiredService<TruckManagementDbContext>());
         services.AddScoped<ITruckRepository, TruckRepository>();
         services.AddScoped<ITruckReadModel, TruckReadModel>();
 

@@ -15,4 +15,8 @@
     <ProjectReference Include="..\TruckManagement.Infrastructure\Coldrun.Modules.TruckManagement.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Responses\" />
+  </ItemGroup>
+
 </Project>
