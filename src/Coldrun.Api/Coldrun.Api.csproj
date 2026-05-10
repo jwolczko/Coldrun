@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Coldrun.Modules.TruckManagement\TruckManagement.Api\Coldrun.Modules.TruckManagement.Api.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ApiRoot\" />
-  </ItemGroup>
-
 </Project>
