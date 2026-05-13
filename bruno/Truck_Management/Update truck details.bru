@@ -1,0 +1,60 @@
+meta {
+  name: Update truck details
+  type: http
+  seq: 4
+  tags: [
+    Truck_Management
+  ]
+}
+
+patch {
+  url: {{baseUrl}}/api/v1/trucks/:code
+  body: json
+  auth: inherit
+}
+
+params:path {
+  code: {{truckCode}}
+}
+
+body:json {
+  {
+    "name": "Truck 1 Updated",
+    "description": "Updated description"
+  }
+}
+
+example {
+  name: 200 Response
+  description: Truck updated.
+  
+  request: {
+    url: {{baseUrl}}/api/v1/trucks/:code
+    method: PATCH
+    mode: json
+    params:path: {
+      code: {{truckCode}}
+    }
+  
+    body:json: {
+      {
+        "name": "Truck 1 Updated",
+        "description": "Updated description"
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

@@ -1,0 +1,74 @@
+meta {
+  name: Get truck by code
+  type: http
+  seq: 3
+  tags: [
+    Truck_Management
+  ]
+}
+
+get {
+  url: {{baseUrl}}/api/v1/trucks/:code
+  body: none
+  auth: inherit
+}
+
+params:path {
+  code: {{truckCode}}
+}
+
+example {
+  name: 200 Response
+  description: Truck found.
+  
+  request: {
+    url: {{baseUrl}}/api/v1/trucks/:code
+    method: GET
+    mode: none
+    params:path: {
+      code: {{truckCode}}
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: 404 Response
+  description: Truck not found.
+  
+  request: {
+    url: {{baseUrl}}/api/v1/trucks/:code
+    method: GET
+    mode: none
+    params:path: {
+      code: {{truckCode}}
+    }
+  }
+  
+  response: {
+    status: {
+      code: 404
+      text: Not Found
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

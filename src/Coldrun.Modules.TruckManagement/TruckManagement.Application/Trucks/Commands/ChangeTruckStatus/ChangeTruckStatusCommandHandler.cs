@@ -41,6 +41,10 @@ public sealed class ChangeTruckStatusCommandHandler
 
         truck.ChangeStatus(requestedStatus);
 
+        await _truckRepository.UpdateAsync(
+            truck,
+            cancellationToken);
+
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         var allowedTransitions = TruckStatusTransitionPolicy

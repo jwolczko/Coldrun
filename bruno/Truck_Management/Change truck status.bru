@@ -1,0 +1,58 @@
+meta {
+  name: Change truck status
+  type: http
+  seq: 7
+  tags: [
+    Truck_Management
+  ]
+}
+
+put {
+  url: {{baseUrl}}/api/v1/trucks/:code/status
+  body: json
+  auth: inherit
+}
+
+params:path {
+  code: {{truckCode}}
+}
+
+body:json {
+  {
+    "status": "To Job"
+  }
+}
+
+example {
+  name: 200 Response
+  description: Truck status changed.
+  
+  request: {
+    url: {{baseUrl}}/api/v1/trucks/:code/status
+    method: PUT
+    mode: json
+    params:path: {
+      code: {{truckCode}}
+    }
+  
+    body:json: {
+      {
+        "status": "To Job"
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

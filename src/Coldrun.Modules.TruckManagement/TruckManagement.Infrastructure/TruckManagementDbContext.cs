@@ -11,10 +11,11 @@ public sealed class TruckManagementDbContext : DbContext, ITruckManagementUnitOf
     }
 
     public DbSet<TruckEntity> Trucks => Set<TruckEntity>();
+    public DbSet<TruckStatusEntity> TruckStatuses => Set<TruckStatusEntity>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("truck_management");
+        modelBuilder.HasDefaultSchema("TruckManagement");
 
         modelBuilder.ApplyConfigurationsFromAssembly(
             typeof(TruckManagementDbContext).Assembly);

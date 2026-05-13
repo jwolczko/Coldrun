@@ -1,0 +1,46 @@
+meta {
+  name: Delete truck
+  type: http
+  seq: 5
+  tags: [
+    Truck_Management
+  ]
+}
+
+delete {
+  url: {{baseUrl}}/api/v1/trucks/:code
+  body: none
+  auth: inherit
+}
+
+params:path {
+  code: {{truckCode}}
+}
+
+example {
+  name: 204 Response
+  description: Truck deleted.
+  
+  request: {
+    url: {{baseUrl}}/api/v1/trucks/:code
+    method: DELETE
+    mode: none
+    params:path: {
+      code: {{truckCode}}
+    }
+  }
+  
+  response: {
+    status: {
+      code: 204
+      text: No Content
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

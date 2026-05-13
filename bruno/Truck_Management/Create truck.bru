@@ -1,0 +1,56 @@
+meta {
+  name: Create truck
+  type: http
+  seq: 2
+  tags: [
+    Truck_Management
+  ]
+}
+
+post {
+  url: {{baseUrl}}/api/v1/trucks
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "code": "{{truckCode}}",
+    "name": "Truck 1",
+    "status": "Loading",
+    "description": "Ready for dispatch"
+  }
+}
+
+example {
+  name: 201 Response
+  description: Truck created.
+  
+  request: {
+    url: {{baseUrl}}/api/v1/trucks
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "code": "{{truckCode}}",
+        "name": "Truck 1",
+        "status": "Loading",
+        "description": "Ready for dispatch"
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 201
+      text: Created
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

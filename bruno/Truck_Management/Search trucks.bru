@@ -1,0 +1,68 @@
+meta {
+  name: Search trucks
+  type: http
+  seq: 1
+  tags: [
+    Truck_Management
+  ]
+}
+
+get {
+  url: {{baseUrl}}/api/v1/trucks
+  body: none
+  auth: inherit
+}
+
+params:query {
+  codeContains: TRK
+  nameContains: Truck
+  descriptionContains: Ready
+  sort: code
+  pageNumber: 1
+  pageSize: 20
+  ~code: 
+  ~status: Out Of Service
+  ~status: Loading
+  ~status: To Job
+  ~status: At Job
+  ~status: Returning
+}
+
+example {
+  name: 200 Response
+  description: Trucks found.
+  
+  request: {
+    url: {{baseUrl}}/api/v1/trucks
+    method: GET
+    mode: none
+    params:query: {
+      ~code: 
+      codeContains: TRK
+      nameContains: Truck
+      ~status: Out Of Service
+      ~status: Loading
+      ~status: To Job
+      ~status: At Job
+      ~status: Returning
+      descriptionContains: Ready
+      sort: code
+      pageNumber: 1
+      pageSize: 20
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

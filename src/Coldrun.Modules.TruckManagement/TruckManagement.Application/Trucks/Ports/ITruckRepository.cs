@@ -16,5 +16,9 @@ public interface ITruckRepository
         Truck truck,
         CancellationToken cancellationToken = default);
 
+    Task UpdateAsync(
+        Truck truck,
+        CancellationToken cancellationToken = default);
+
     void Remove(Truck truck);
 }

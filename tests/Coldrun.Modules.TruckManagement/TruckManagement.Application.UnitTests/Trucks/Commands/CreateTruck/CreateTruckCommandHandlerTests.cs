@@ -67,6 +67,11 @@ public sealed class CreateTruckCommandHandlerTests
             return Task.CompletedTask;
         }
 
+        public Task UpdateAsync(Truck truck, CancellationToken cancellationToken = default)
+        {
+            return Task.CompletedTask;
+        }
+
         public void Remove(Truck truck)
         {
         }
